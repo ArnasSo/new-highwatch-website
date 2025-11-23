@@ -245,7 +245,6 @@ nav a:focus::after {
     width: 400px;      /* change this size as needed */
     height: auto;
     filter: drop-shadow(0 0 20px rgba(255, 215, 150, 0.6));
-    margin-bottom: -50px;
 }
 
 .hero-logo img {
