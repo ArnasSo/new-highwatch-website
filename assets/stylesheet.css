@@ -464,12 +464,12 @@ nav a:focus::after {
 .feature-box h3 {
     color: #fff;
     font-size: 1.05rem;
-    margin-bottom: 8px
+    margin-bottom: 8px;
 }
 
 .feature-box p {
     color: var(--muted);
-    font-size: .92rem
+    font-size: .92rem;
 }
 
 /* Footer */
@@ -481,38 +481,26 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px
+    gap: 12px;
 }
 
 /* horizontal line constrained to the container width so it aligns with feature boxes */
 footer .container {
     border-top: 2px solid rgba(255, 255, 255, 0.16);
-    padding-top: 34px
+    padding-top: 34px;
 }
 
 .footer-links {
     display: flex;
     align-items: center;
-    gap: 0
+    gap: 0;
 }
 
 .footer-links a {
     color: rgba(255, 255, 255, 0.75);
     text-decoration: none;
     font-size: 0.9rem;
-    padding: 0 8px
-}
-
-/* vertical dividers between footer links */
-.footer-links a+a::before {
-    content: "";
-    display: inline-block;
-    width: 1px;
-    height: 14px;
-    background: rgba(255, 255, 255, 0.12);
-    margin-right: 8px;
-    margin-left: 8px;
-    vertical-align: middle
+    padding: 0 8px;
 }
 
 /* BURGER BUTTON */
@@ -620,6 +608,25 @@ nav ul {
 
     .hero-logo img{
         width: 300px;
+    }
+
+    .footer-links {
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+    align-items: normal;
+    }
+
+    .footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+    .footer-links a {
+        color: rgba(255, 255, 255, 0.75);
+        text-decoration: none;
+        font-size: 0.9rem;
     }
 }
 
