@@ -1,4 +1,3 @@
-/* Cleaned stylesheet: single copy, header semi-transparent so background shows through */
 :root {
     --max-width: 1200px;
     --accent-yellow: #ffbf3d;
@@ -31,7 +30,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Typography */
 h1,
 h2,
 h3,
@@ -47,17 +45,13 @@ p {
     margin: 0 0 1em 0
 }
 
-/* Layout container */
 .container {
     max-width: var(--max-width);
     margin: 0 auto;
     padding: 0 20px
 }
 
-/* Header */
 header {
-    /* semi-transparent so background image shows through the nav */
-    /* make darker: ~75% opacity so the header is more visible over the image */
     background: rgba(0, 0, 0, 0.75);
     position: fixed;
     top: 0;
@@ -89,7 +83,6 @@ header .container {
     text-decoration: none
 }
 
-/* Logo hover: swap visible text to themed phrase with a slide/fade and subtle highlight */
 .logo {
     position: relative;
     overflow: visible;
@@ -107,9 +100,7 @@ header .container {
     display: inline-block;
     transition: transform .36s cubic-bezier(.2, .9, .2, 1), opacity .28s ease;
     white-space: nowrap;
-    /* prevent wrapping */
     font-size: inherit;
-    /* use same size as .logo (32px) */
 }
 
 .logo-hover {
@@ -123,7 +114,6 @@ header .container {
 
 @media (max-width:700px) {
 
-    /* remove forced width on small screens so the layout can wrap naturally */
     .logo {
         min-width: auto;
         padding-right: 6px
@@ -144,7 +134,6 @@ header .container {
     opacity: 1
 }
 
-/* subtle gold sweep across the logo on hover */
 .logo a::after {
     content: "";
     position: absolute;
@@ -185,7 +174,6 @@ nav a {
     padding-bottom: 4px
 }
 
-/* underline animation: draws from left to right */
 nav a::after {
     content: "";
     position: absolute;
@@ -213,8 +201,8 @@ nav a:focus::after {
 
 .btn-account {
     position: relative;
-    background: #d88d24cc;
-    color: #fff;
+    background: #f2c27f;
+    color: #000;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -224,16 +212,14 @@ nav a:focus::after {
     text-transform: uppercase;
     transition: transform .12s ease, box-shadow .12s ease;
     text-decoration: none;
-    border: 2px solid #f2c27f;
+    border: 2px solid #ffe9c3;
+    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.45);
 }
 
 .btn-account:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 44px rgba(155, 122, 255, 0.9), 0 10px 22px rgba(0, 0, 0, 0.32);
+    box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.55);
 }
 
-/* Hero: pulled under header so the image starts at the very top */
-/* Make sure sparks don't overflow weirdly */
 .hero {
     position: relative;
     overflow: hidden;
@@ -241,12 +227,12 @@ nav a:focus::after {
 
 .hero-logo {
     text-align: center;
-    z-index: 4; /* above sparks, below header */
+    z-index: 4;
     position: relative;
 }
 
 .hero-logo img {
-    width: 400px;      /* change this size as needed */
+    width: 400px;
     height: auto;
     filter: drop-shadow(0 0 20px rgba(255, 215, 150, 0.6));
 }
@@ -256,21 +242,26 @@ nav a:focus::after {
 }
 
 @keyframes logoPulse {
-    0%   { filter: drop-shadow(0 0 10px rgba(255, 215, 150, 0.3)); }
-    50%  { filter: drop-shadow(0 0 24px rgba(255, 215, 150, 0.7)); }
-    100% { filter: drop-shadow(0 0 10px rgba(255, 215, 150, 0.3)); }
+    0% {
+        filter: drop-shadow(0 0 10px rgba(255, 215, 150, 0.3));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 24px rgba(255, 215, 150, 0.7));
+    }
+
+    100% {
+        filter: drop-shadow(0 0 10px rgba(255, 215, 150, 0.3));
+    }
 }
 
-/* Wrapper just for clarity (not strictly necessary) */
 .hero-sparks {
     position: absolute;
     inset: 0;
-    pointer-events: none; /* no interaction */
-    z-index: 2; /* above image, below text */
+    pointer-events: none;
+    z-index: 2;
 }
 
-
-/* Base style for all sparks */
 .spark {
     position: absolute;
     width: 330px;
@@ -280,41 +271,59 @@ nav a:focus::after {
     pointer-events: none;
 }
 
-/* Left side sparks start near left and move further left */
 .spark-left {
     left: 8%;
     animation: moveSparkLeft 6s linear infinite;
 }
 
-/* Right side sparks start near right and move further right */
 .spark-right {
     right: 8%;
     animation: moveSparkRight 6s linear infinite;
 }
 
-/* Positions on Y-axis only – X is handled by animation now */
-.spark-1 { top:25%; animation-delay: -1s; }
-.spark-2 { top:25%; animation-delay: -3s; }
-.spark-3 { top:25%; animation-delay: -2s; }
-.spark-4 { top:25%; animation-delay: -4s; }
-.spark-5 { top:25%; animation-delay: -5s; }
+.spark-1 {
+    top: 25%;
+    animation-delay: -1s;
+}
 
-/* Floating, pulsing keyframe */
+.spark-2 {
+    top: 25%;
+    animation-delay: -3s;
+}
+
+.spark-3 {
+    top: 25%;
+    animation-delay: -2s;
+}
+
+.spark-4 {
+    top: 25%;
+    animation-delay: -4s;
+}
+
+.spark-5 {
+    top: 25%;
+    animation-delay: -5s;
+}
+
 @keyframes moveSparkLeft {
     0% {
         transform: translateX(0) scale(0.7);
         opacity: 0;
     }
+
     10% {
-        opacity: 1; /* fade in quickly */
+        opacity: 1;
     }
+
     70% {
         opacity: 1;
-        transform: translateX(-180px) scale(1); /* drift left */
+        transform: translateX(-180px) scale(1);
     }
+
     100% {
-        opacity: 0; 
-        transform: translateX(-260px) scale(1.1); /* further left, fade out */
+        opacity: 0;
+        transform: translateX(-260px) scale(1.1);
     }
 }
 
@@ -323,26 +332,23 @@ nav a:focus::after {
         transform: translateX(0) scale(0.7);
         opacity: 0;
     }
+
     10% {
         opacity: 1;
     }
+
     70% {
         opacity: 1;
         transform: translateX(180px) scale(1);
     }
+
     100% {
         opacity: 0;
         transform: translateX(260px) scale(1.1);
     }
 }
 
-
-
-
-/* Hero image in-flow so the hero height equals the image height.
-   Header is fixed above it so the image will be visible through the nav. */
 .hero-img {
-    /* sizing and positioning */
     display: block;
     margin: 0 auto;
     position: relative;
@@ -350,17 +356,15 @@ nav a:focus::after {
     opacity: 0.55;
 }
 
-/* center content above the image */
 .hero-content {
     position: absolute;
     left: 50%;
-    /* push content slightly down so it clears the fixed header visually */
     top: calc(50% + 36px);
     transform: translate(-50%, -50%);
     z-index: 3;
     text-align: center;
     max-width: 900px;
-    padding: 28px 20px
+    padding: 28px 20px;
 }
 
 .hero-content p {
@@ -371,7 +375,7 @@ nav a:focus::after {
 }
 
 .hero-buttons {
-    margin-top: 28px;   
+    margin-top: 28px;
     display: flex;
     gap: 16px;
     justify-content: center;
@@ -391,20 +395,18 @@ nav a:focus::after {
     padding: 8px 22px;
     margin: 0 auto 30px;
     box-shadow: inset 0 3px 6px #00000029, 0 3px 6px #000000bf;
+    box-shadow: inset 0 0 40px rgba(223, 195, 195, 0.45);
 }
 
-.hero-content h1 span{
+.hero-content h1 span {
     font-size: 30px;
 }
 
-/* Unified CTA styling matching Figma */
 .btn-primary {
     display: inline-block;
     padding: 18px 24px;
-    /* vertical 18, horizontal 24 */
     text-decoration: none;
     font-weight: 400;
-    /* Outfit regular */
     font-family: 'Trajan', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
     font-size: 16px;
     line-height: 18px;
@@ -414,10 +416,7 @@ nav a:focus::after {
     position: relative;
     z-index: 4;
     background: #FCB755;
-    
     border: 2px solid #f2c27f;
-    /* flat fill color matching Figma */
-    /* stronger centered glow and subtle drop shadow */
     box-shadow: 0 0 40px rgba(252, 183, 85, 0.85), 0 10px 26px rgba(0, 0, 0, 0.34);
     transition: transform .12s ease, box-shadow .12s ease;
 }
@@ -448,7 +447,6 @@ nav a:focus::after {
     justify-content: flex-start;
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.65) inset, 0 4px 18px rgba(0, 0, 0, 0.55);
     cursor: default;
-    /* ensure cursor stays default (not the text caret) on hover */
 }
 
 .feature-box {
@@ -484,7 +482,6 @@ footer {
     gap: 12px;
 }
 
-/* horizontal line constrained to the container width so it aligns with feature boxes */
 footer .container {
     border-top: 2px solid rgba(255, 255, 255, 0.16);
     padding-top: 34px;
@@ -520,42 +517,170 @@ footer .container {
 .burger span {
     display: block;
     height: 3px;
-    background: #f2c27f; /* gold */
+    background: #f2c27f;
     border-radius: 2px;
     transition: 0.3s;
 }
 
-/* NAV MOBILE (hidden by default) */
+/* MODAL */
+.modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal.is-visible {
+    display: flex;
+}
+
+.modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+}
+
+/* MODAL WINDOW */
+.modal-dialog {
+    position: relative;
+    width: 90%;
+    max-width: 480px;
+    background-color: #050509;
+    border: 1px solid #f2c27f;
+    padding: 1.5rem 1.75rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+    text-align: left;
+}
+
+#download-modal-title {
+    text-align: center;
+    font-family: 'Trajan', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+.modal-dialog h2 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-family: 'Trajan', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+}
+
+.modal-dialog p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* CLOSE BUTTON */
+.modal-close {
+    position: absolute;
+    top: 0.4rem;
+    right: 0.7rem;
+    border: 0;
+    background: transparent;
+    color: #f2c27f;
+    font-size: 1.6rem;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* DOWNLOAD MODAL LAYOUT */
+.download-columns {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+    margin-top: 1.2rem;
+}
+
+.centered-text {
+    text-align: center;
+}
+
+.download-col h3 {
+    margin: 0 0 0.8rem 0;
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    color: #f2c27f;
+    font-family: 'Trajan', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+.discord-link {
+    text-decoration: none;
+    color: rgb(112, 112, 248);
+}
+
+/* Download links */
+.dl-main,
+.dl-mirror {
+    display: block;
+    padding: 0.55rem 0.8rem;
+    margin-bottom: 0.45rem;
+    border: 1px solid #f2c27f;
+    background: rgba(255, 231, 173, 0.06);
+    color: #f2c27f;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.dl-main span {
+    opacity: 0.8;
+    font-size: 0.85rem;
+}
+
+.dl-main:hover,
+.dl-mirror:hover {
+    background: rgba(255, 231, 173, 0.14);
+    transform: translateY(-2px);
+}
+
+/* NAV MOBILE */
 nav {
     transition: 0.3s ease;
 }
 
 nav ul {
-    flex-direction: row; /* desktop */
+    flex-direction: row;
 }
 
 /* MOBILE MODE */
 @media (max-width: 980px) {
+
+    .download-columns {
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+    .download-col {
+        flex: 1;
+    }
+
+    .modal-dialog {
+        padding: 2rem 2.25rem;
+        font-size: 1rem;
+    }
+
+
     .feature-grid {
-        grid-template-columns: repeat(2, 1fr)
+        grid-template-columns: repeat(2, 1fr);
     }
 
     nav ul {
-        gap: 14px
+        gap: 14px;
     }
 
-    /* show burger */
     .burger {
         display: flex;
     }
 
-    /* hide normal nav */
     nav {
         position: absolute;
         top: 90px;
         left: 0;
         width: 100%;
-        background: rgba(0,0,0,0.9);
+        background: rgba(0, 0, 0, 0.9);
         transform: translateY(-200%);
         opacity: 0;
         pointer-events: none;
@@ -575,13 +700,13 @@ nav ul {
     }
 
     .btn-account {
-        display: none; /* optionally hide account button on mobile */
+        display: none;
     }
 
     .account-pc {
-    display: block;
+        display: block;
     }
-    
+
     .feature-grid {
         grid-template-columns: 1fr;
     }
@@ -598,7 +723,8 @@ nav ul {
         width: 90%;
     }
 
-    .hero-content h1, .hero-content h1 span {
+    .hero-content h1,
+    .hero-content h1 span {
         font-size: 1.5rem;
     }
 
@@ -606,22 +732,22 @@ nav ul {
         height: 815px;
     }
 
-    .hero-logo img{
+    .hero-logo img {
         width: 300px;
     }
 
     .footer-links {
-    flex-direction: column;
-    gap: 20px;
-    text-align: left;
-    align-items: normal;
+        flex-direction: column;
+        gap: 20px;
+        text-align: left;
+        align-items: normal;
     }
 
     .footer-content {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-}
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+    }
 
     .footer-links a {
         color: rgba(255, 255, 255, 0.75);
@@ -630,13 +756,14 @@ nav ul {
     }
 }
 
-/* BURGER ANIMATION TO X */
 .burger.open span:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
 }
+
 .burger.open span:nth-child(2) {
     opacity: 0;
 }
+
 .burger.open span:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
 }

@@ -19,38 +19,38 @@
 
   <!-- HEADER -->
   <header>
-  <div class="container">
+    <div class="container">
 
-    <div class="logo">
-      <a href="/">HIGHWATCH</a>
+      <div class="logo">
+        <a href="/">HIGHWATCH</a>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="#"><i class="fa-solid fa-crosshairs"></i> wiki</a></li>
+          <li><a href="#" class="open-download"><i class="fa-solid fa-download"></i> Download</a></li>
+          <li><a href="#"><i class="fa-brands fa-discord"></i> Discord</a></li>
+          <li><a class="account-pc" href="#">My Account</a></li>
+        </ul>
+      </nav>
+
+      <a href="#" class="btn-account">My Account</a>
+
+      <button class="burger" aria-label="Open Menu">
+        <span></span><span></span><span></span>
+      </button>
+
     </div>
-
-    <nav>
-      <ul>
-        <li><a href="#">wiki</a></li>
-        <li><a href="#">Download</a></li>
-        <li><a href="#"><i class="fa-brands fa-discord"></i> Discord</a></li>
-        <li><a class="account-pc" href="#">My Account</a></li>
-      </ul>
-    </nav>
-
-    <a href="#" class="btn-account">My Account</a>
-
-    <button class="burger" aria-label="Open Menu">
-      <span></span><span></span><span></span>
-    </button>
-
-  </div>
-</header>
+  </header>
 
   <!-- HERO SECTION -->
   <section class="hero">
     <img class="hero-img" src="assets/images/background.jpg" alt="" aria-hidden="true">
 
     <div class="hero-content">
-      
+
       <div class="hero-logo">
-        <img src="assets/images/logo.png" alt="">
+        <a href="index.html"><img src="assets/images/logo.png" alt=""></a>
       </div>
       <!-- Decorative sparks -->
       <div class="hero-sparks">
@@ -67,7 +67,7 @@
         <br>Fast progression, intense PvP, and a living world.
       </p>
       <div class="hero-buttons">
-        <a href="#" class="btn-primary">DOWNLOAD GAME</a>
+        <a href="#" class="btn-primary open-download">DOWNLOAD GAME</a>
       </div>
     </div>
   </section>
@@ -118,6 +118,44 @@
     </div>
   </section>
 
+  <!-- DOWNLOAD MODAL -->
+  <div class="modal" id="download-modal" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="download-modal-title">
+      <button class="modal-close" aria-label="Close download window">&times;</button>
+
+      <h2 id="download-modal-title">Download Highwatch</h2>
+
+      <div class="download-columns">
+
+        <!-- LEFT COLUMN -->
+        <div class="download-col">
+          <h3>Updater - Run, Wait, Play!</h3>
+
+          <a href="#" class="dl-main">Updater.exe <span>(7.2 MB)</span></a>
+          <a href="#" class="dl-mirror">Mirror 1</a>
+          <a href="#" class="dl-mirror">Mirror 2</a>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="download-col">
+          <h3>Full Download - Extract and Play!</h3>
+
+          <a href="#" class="dl-main">Full Client <span>(4.6 GB)</span></a>
+          <a href="#" class="dl-mirror">Full Mirror 1</a>
+          <a href="#" class="dl-mirror">Full Mirror 2</a>
+        </div>
+
+      </div>
+      <br>
+      <h3 id="download-modal-title">Having Troubles?</h3>
+      <div class="centered-text">
+        <p>Find us on <a href="#" class="discord-link">Discord</a> and seek staff member or make a support ticket!</p>
+      </div>
+    </div>
+  </div>
+
   <!-- FOOTER -->
   <footer>
     <div class="container footer-content">
@@ -131,7 +169,8 @@
   </footer>
 
 
-<script src="/assets/js/burgermenu.js"></script>
+  <script src="/assets/js/burgermenu.js"></script>
+  <script src="/assets/js/download-modal.js"></script>
 </body>
 
 </html>
